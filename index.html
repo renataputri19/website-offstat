@@ -6,28 +6,169 @@
 <body>
 	<h1>Welcome to my website</h1>
 
-	<div id="videos"></div>
-	<div id="pdfs"></div>
-
 	<script>
-		// List of YouTube video IDs
-		var videos = ['mzfqcGVwBAs', 'mzfqcGVwBAs', 'mzfqcGVwBAs'];
+		// Array of chapters, where each chapter is an array of video IDs and PDF file IDs
+		var chapters = [
+			{
+				name: "Chapter 1",
+				videos: ['mzfqcGVwBAs', 'P9Hr2FY475U', 'yWPbn1m4ONc',
+				'rPaIPw-4h5s', '00XWhZRAeIY', '6c-vRkiDMiY'],
+				pdfs: ['1P4H4BhbEOGXlAiHLz_Xx9BL1_lCpNKJz', '1Iw61uWTFjNyhBxSyRcm5CwqCueW6D26M', 
+				'1IyE1bqEKDptRYgzwP6k71kY6OYxZ77tZ','1q1kpiB4D73WZLmkIJ2vcZaNLgN9usdpC',
+				'1tkCBob6zE_IbRZm85yYI0YNpTOMYaf83','1-3LUdauQxwV3mrfEKdTx1SX-JmcoHi3D',
+				'1MjJeH-ASqOcrSg6vHRA_GTv7mN2bHJri','1N-Ax1yoNHmNLj_lRS6nJWCS-H4akDLzj',
+				'1jGMpxoeN2Q60M0zBxD1Ki9G8YSHmjdkV','1Zogg1BwUfeM0xCIBJSft5E6HYHzBAa46']
+			},
+			{
+				name: "Chapter 2",
+				videos: ['mzfqcGVwBAs', 'P9Hr2FY475U', 'yWPbn1m4ONc',
+				'rPaIPw-4h5s', '00XWhZRAeIY', '6c-vRkiDMiY'],
+				pdfs: ['1P4H4BhbEOGXlAiHLz_Xx9BL1_lCpNKJz', '1Iw61uWTFjNyhBxSyRcm5CwqCueW6D26M', 
+				'1IyE1bqEKDptRYgzwP6k71kY6OYxZ77tZ','1q1kpiB4D73WZLmkIJ2vcZaNLgN9usdpC',
+				'1tkCBob6zE_IbRZm85yYI0YNpTOMYaf83','1-3LUdauQxwV3mrfEKdTx1SX-JmcoHi3D',
+				'1MjJeH-ASqOcrSg6vHRA_GTv7mN2bHJri','1N-Ax1yoNHmNLj_lRS6nJWCS-H4akDLzj',
+				'1jGMpxoeN2Q60M0zBxD1Ki9G8YSHmjdkV','1Zogg1BwUfeM0xCIBJSft5E6HYHzBAa46']
+			},
+			{
+				name: "Chapter 3",
+				videos: ['mzfqcGVwBAs', 'P9Hr2FY475U', 'yWPbn1m4ONc',
+				'rPaIPw-4h5s', '00XWhZRAeIY', '6c-vRkiDMiY'],
+				pdfs: ['1P4H4BhbEOGXlAiHLz_Xx9BL1_lCpNKJz', '1Iw61uWTFjNyhBxSyRcm5CwqCueW6D26M', 
+				'1IyE1bqEKDptRYgzwP6k71kY6OYxZ77tZ','1q1kpiB4D73WZLmkIJ2vcZaNLgN9usdpC',
+				'1tkCBob6zE_IbRZm85yYI0YNpTOMYaf83','1-3LUdauQxwV3mrfEKdTx1SX-JmcoHi3D',
+				'1MjJeH-ASqOcrSg6vHRA_GTv7mN2bHJri','1N-Ax1yoNHmNLj_lRS6nJWCS-H4akDLzj',
+				'1jGMpxoeN2Q60M0zBxD1Ki9G8YSHmjdkV','1Zogg1BwUfeM0xCIBJSft5E6HYHzBAa46']
+			},
+			{
+				name: "Chapter 4",
+				videos: ['mzfqcGVwBAs', 'P9Hr2FY475U', 'yWPbn1m4ONc',
+				'rPaIPw-4h5s', '00XWhZRAeIY', '6c-vRkiDMiY'],
+				pdfs: ['1P4H4BhbEOGXlAiHLz_Xx9BL1_lCpNKJz', '1Iw61uWTFjNyhBxSyRcm5CwqCueW6D26M', 
+				'1IyE1bqEKDptRYgzwP6k71kY6OYxZ77tZ','1q1kpiB4D73WZLmkIJ2vcZaNLgN9usdpC',
+				'1tkCBob6zE_IbRZm85yYI0YNpTOMYaf83','1-3LUdauQxwV3mrfEKdTx1SX-JmcoHi3D',
+				'1MjJeH-ASqOcrSg6vHRA_GTv7mN2bHJri','1N-Ax1yoNHmNLj_lRS6nJWCS-H4akDLzj',
+				'1jGMpxoeN2Q60M0zBxD1Ki9G8YSHmjdkV','1Zogg1BwUfeM0xCIBJSft5E6HYHzBAa46']
+			},
+			{
+				name: "Chapter 5",
+				videos: ['mzfqcGVwBAs', 'P9Hr2FY475U', 'yWPbn1m4ONc',
+				'rPaIPw-4h5s', '00XWhZRAeIY', '6c-vRkiDMiY'],
+				pdfs: ['1P4H4BhbEOGXlAiHLz_Xx9BL1_lCpNKJz', '1Iw61uWTFjNyhBxSyRcm5CwqCueW6D26M', 
+				'1IyE1bqEKDptRYgzwP6k71kY6OYxZ77tZ','1q1kpiB4D73WZLmkIJ2vcZaNLgN9usdpC',
+				'1tkCBob6zE_IbRZm85yYI0YNpTOMYaf83','1-3LUdauQxwV3mrfEKdTx1SX-JmcoHi3D',
+				'1MjJeH-ASqOcrSg6vHRA_GTv7mN2bHJri','1N-Ax1yoNHmNLj_lRS6nJWCS-H4akDLzj',
+				'1jGMpxoeN2Q60M0zBxD1Ki9G8YSHmjdkV','1Zogg1BwUfeM0xCIBJSft5E6HYHzBAa46']
+			},
+			{
+				name: "Chapter 6",
+				videos: ['mzfqcGVwBAs', 'P9Hr2FY475U', 'yWPbn1m4ONc',
+				'rPaIPw-4h5s', '00XWhZRAeIY', '6c-vRkiDMiY'],
+				pdfs: ['1P4H4BhbEOGXlAiHLz_Xx9BL1_lCpNKJz', '1Iw61uWTFjNyhBxSyRcm5CwqCueW6D26M', 
+				'1IyE1bqEKDptRYgzwP6k71kY6OYxZ77tZ','1q1kpiB4D73WZLmkIJ2vcZaNLgN9usdpC',
+				'1tkCBob6zE_IbRZm85yYI0YNpTOMYaf83','1-3LUdauQxwV3mrfEKdTx1SX-JmcoHi3D',
+				'1MjJeH-ASqOcrSg6vHRA_GTv7mN2bHJri','1N-Ax1yoNHmNLj_lRS6nJWCS-H4akDLzj',
+				'1jGMpxoeN2Q60M0zBxD1Ki9G8YSHmjdkV','1Zogg1BwUfeM0xCIBJSft5E6HYHzBAa46']
+			},
+			{
+				name: "Chapter 7",
+				videos: ['mzfqcGVwBAs', 'P9Hr2FY475U', 'yWPbn1m4ONc',
+				'rPaIPw-4h5s', '00XWhZRAeIY', '6c-vRkiDMiY'],
+				pdfs: ['1P4H4BhbEOGXlAiHLz_Xx9BL1_lCpNKJz', '1Iw61uWTFjNyhBxSyRcm5CwqCueW6D26M', 
+				'1IyE1bqEKDptRYgzwP6k71kY6OYxZ77tZ','1q1kpiB4D73WZLmkIJ2vcZaNLgN9usdpC',
+				'1tkCBob6zE_IbRZm85yYI0YNpTOMYaf83','1-3LUdauQxwV3mrfEKdTx1SX-JmcoHi3D',
+				'1MjJeH-ASqOcrSg6vHRA_GTv7mN2bHJri','1N-Ax1yoNHmNLj_lRS6nJWCS-H4akDLzj',
+				'1jGMpxoeN2Q60M0zBxD1Ki9G8YSHmjdkV','1Zogg1BwUfeM0xCIBJSft5E6HYHzBAa46']
+			},
+			{
+				name: "Chapter 8",
+				videos: ['mzfqcGVwBAs', 'P9Hr2FY475U', 'yWPbn1m4ONc',
+				'rPaIPw-4h5s', '00XWhZRAeIY', '6c-vRkiDMiY'],
+				pdfs: ['1P4H4BhbEOGXlAiHLz_Xx9BL1_lCpNKJz', '1Iw61uWTFjNyhBxSyRcm5CwqCueW6D26M', 
+				'1IyE1bqEKDptRYgzwP6k71kY6OYxZ77tZ','1q1kpiB4D73WZLmkIJ2vcZaNLgN9usdpC',
+				'1tkCBob6zE_IbRZm85yYI0YNpTOMYaf83','1-3LUdauQxwV3mrfEKdTx1SX-JmcoHi3D',
+				'1MjJeH-ASqOcrSg6vHRA_GTv7mN2bHJri','1N-Ax1yoNHmNLj_lRS6nJWCS-H4akDLzj',
+				'1jGMpxoeN2Q60M0zBxD1Ki9G8YSHmjdkV','1Zogg1BwUfeM0xCIBJSft5E6HYHzBAa46']
+			},
+			{
+				name: "Chapter 9",
+				videos: ['mzfqcGVwBAs', 'P9Hr2FY475U', 'yWPbn1m4ONc',
+				'rPaIPw-4h5s', '00XWhZRAeIY', '6c-vRkiDMiY'],
+				pdfs: ['1P4H4BhbEOGXlAiHLz_Xx9BL1_lCpNKJz', '1Iw61uWTFjNyhBxSyRcm5CwqCueW6D26M', 
+				'1IyE1bqEKDptRYgzwP6k71kY6OYxZ77tZ','1q1kpiB4D73WZLmkIJ2vcZaNLgN9usdpC',
+				'1tkCBob6zE_IbRZm85yYI0YNpTOMYaf83','1-3LUdauQxwV3mrfEKdTx1SX-JmcoHi3D',
+				'1MjJeH-ASqOcrSg6vHRA_GTv7mN2bHJri','1N-Ax1yoNHmNLj_lRS6nJWCS-H4akDLzj',
+				'1jGMpxoeN2Q60M0zBxD1Ki9G8YSHmjdkV','1Zogg1BwUfeM0xCIBJSft5E6HYHzBAa46']
+			},
+			{
+				name: "Chapter 10",
+				videos: ['mzfqcGVwBAs', 'P9Hr2FY475U', 'yWPbn1m4ONc',
+				'rPaIPw-4h5s', '00XWhZRAeIY', '6c-vRkiDMiY'],
+				pdfs: ['1P4H4BhbEOGXlAiHLz_Xx9BL1_lCpNKJz', '1Iw61uWTFjNyhBxSyRcm5CwqCueW6D26M', 
+				'1IyE1bqEKDptRYgzwP6k71kY6OYxZ77tZ','1q1kpiB4D73WZLmkIJ2vcZaNLgN9usdpC',
+				'1tkCBob6zE_IbRZm85yYI0YNpTOMYaf83','1-3LUdauQxwV3mrfEKdTx1SX-JmcoHi3D',
+				'1MjJeH-ASqOcrSg6vHRA_GTv7mN2bHJri','1N-Ax1yoNHmNLj_lRS6nJWCS-H4akDLzj',
+				'1jGMpxoeN2Q60M0zBxD1Ki9G8YSHmjdkV','1Zogg1BwUfeM0xCIBJSft5E6HYHzBAa46']
+			},
+			{
+				name: "Chapter 11",
+				videos: ['mzfqcGVwBAs', 'P9Hr2FY475U', 'yWPbn1m4ONc',
+				'rPaIPw-4h5s', '00XWhZRAeIY', '6c-vRkiDMiY'],
+				pdfs: ['1P4H4BhbEOGXlAiHLz_Xx9BL1_lCpNKJz', '1Iw61uWTFjNyhBxSyRcm5CwqCueW6D26M', 
+				'1IyE1bqEKDptRYgzwP6k71kY6OYxZ77tZ','1q1kpiB4D73WZLmkIJ2vcZaNLgN9usdpC',
+				'1tkCBob6zE_IbRZm85yYI0YNpTOMYaf83','1-3LUdauQxwV3mrfEKdTx1SX-JmcoHi3D',
+				'1MjJeH-ASqOcrSg6vHRA_GTv7mN2bHJri','1N-Ax1yoNHmNLj_lRS6nJWCS-H4akDLzj',
+				'1jGMpxoeN2Q60M0zBxD1Ki9G8YSHmjdkV','1Zogg1BwUfeM0xCIBJSft5E6HYHzBAa46']
+			},
+			{
+				name: "Chapter 12",
+				videos: ['mzfqcGVwBAs', 'P9Hr2FY475U', 'yWPbn1m4ONc',
+				'rPaIPw-4h5s', '00XWhZRAeIY', '6c-vRkiDMiY'],
+				pdfs: ['1P4H4BhbEOGXlAiHLz_Xx9BL1_lCpNKJz', '1Iw61uWTFjNyhBxSyRcm5CwqCueW6D26M', 
+				'1IyE1bqEKDptRYgzwP6k71kY6OYxZ77tZ','1q1kpiB4D73WZLmkIJ2vcZaNLgN9usdpC',
+				'1tkCBob6zE_IbRZm85yYI0YNpTOMYaf83','1-3LUdauQxwV3mrfEKdTx1SX-JmcoHi3D',
+				'1MjJeH-ASqOcrSg6vHRA_GTv7mN2bHJri','1N-Ax1yoNHmNLj_lRS6nJWCS-H4akDLzj',
+				'1jGMpxoeN2Q60M0zBxD1Ki9G8YSHmjdkV','1Zogg1BwUfeM0xCIBJSft5E6HYHzBAa46']
+			},
+			{
+				name: "Chapter 13",
+				videos: ['mzfqcGVwBAs', 'P9Hr2FY475U', 'yWPbn1m4ONc',
+				'rPaIPw-4h5s', '00XWhZRAeIY', '6c-vRkiDMiY'],
+				pdfs: ['1P4H4BhbEOGXlAiHLz_Xx9BL1_lCpNKJz', '1Iw61uWTFjNyhBxSyRcm5CwqCueW6D26M', 
+				'1IyE1bqEKDptRYgzwP6k71kY6OYxZ77tZ','1q1kpiB4D73WZLmkIJ2vcZaNLgN9usdpC',
+				'1tkCBob6zE_IbRZm85yYI0YNpTOMYaf83','1-3LUdauQxwV3mrfEKdTx1SX-JmcoHi3D',
+				'1MjJeH-ASqOcrSg6vHRA_GTv7mN2bHJri','1N-Ax1yoNHmNLj_lRS6nJWCS-H4akDLzj',
+				'1jGMpxoeN2Q60M0zBxD1Ki9G8YSHmjdkV','1Zogg1BwUfeM0xCIBJSft5E6HYHzBAa46']
+			},
+			{
+				name: "Chapter 14",
+				videos: ['mzfqcGVwBAs', 'P9Hr2FY475U', 'yWPbn1m4ONc',
+				'rPaIPw-4h5s', '00XWhZRAeIY', '6c-vRkiDMiY'],
+				pdfs: ['1P4H4BhbEOGXlAiHLz_Xx9BL1_lCpNKJz', '1Iw61uWTFjNyhBxSyRcm5CwqCueW6D26M', 
+				'1IyE1bqEKDptRYgzwP6k71kY6OYxZ77tZ','1q1kpiB4D73WZLmkIJ2vcZaNLgN9usdpC',
+				'1tkCBob6zE_IbRZm85yYI0YNpTOMYaf83','1-3LUdauQxwV3mrfEKdTx1SX-JmcoHi3D',
+				'1MjJeH-ASqOcrSg6vHRA_GTv7mN2bHJri','1N-Ax1yoNHmNLj_lRS6nJWCS-H4akDLzj',
+				'1jGMpxoeN2Q60M0zBxD1Ki9G8YSHmjdkV','1Zogg1BwUfeM0xCIBJSft5E6HYHzBAa46']
+			}
+		];
 
-		// List of Google Drive PDF file IDs
-		var pdfs = ['1P4H4BhbEOGXlAiHLz_Xx9BL1_lCpNKJz', '1P4H4BhbEOGXlAiHLz_Xx9BL1_lCpNKJz', '1P4H4BhbEOGXlAiHLz_Xx9BL1_lCpNKJz'];
+		// Loop through the chapters and embed the videos and PDF files for each chapter
+		for (var i = 0; i < chapters.length; i++) {
+			var chapter = chapters[i];
+			document.write("<h2>" + chapter.name + "</h2>");
 
-		// Loop through the video IDs and embed them in the "videos" div
-		for (var i = 0; i < videos.length; i++) {
-			var videoId = videos[i];
-			var videoFrame = '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + videoId + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
-			document.getElementById("videos").innerHTML += videoFrame;
-		}
+			// Loop through the video IDs and embed them
+			for (var j = 0; j < chapter.videos.length; j++) {
+				var videoId = chapter.videos[j];
+				var videoFrame = '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + videoId + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+				document.write(videoFrame);
+			}
 
-		// Loop through the PDF file IDs and embed them in the "pdfs" div
-		for (var i = 0; i < pdfs.length; i++) {
-			var pdfId = pdfs[i];
-			var pdfFrame = '<iframe src="https://drive.google.com/file/d/' + pdfId + '/preview" width="640" height="480"></iframe>';
-			document.getElementById("pdfs").innerHTML += pdfFrame;
+			// Loop through the PDF file IDs and embed them
+			for (var j = 0; j < chapter.pdfs.length; j++) {
+				var pdfId = chapter.pdfs[j];
+				var pdfFrame = '<iframe src="https://drive.google.com/file/d/' + pdfId + '/preview" width="640" height="480"></iframe>';
+				document.write(pdfFrame);
+			}
 		}
 	</script>
 </body>
