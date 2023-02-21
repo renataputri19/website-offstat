@@ -166,7 +166,8 @@
 			// Loop through the PDF file IDs and embed them
 			for (var j = 0; j < chapter.pdfs.length; j++) {
 				var pdfId = chapter.pdfs[j];
-				var pdfFrame = '<iframe src="https://drive.google.com/file/d/' + pdfId + '/preview" width="640" height="480"></iframe>';
+				// <a href="https://drive.google.com/file/d/DRIVE_FILE_ID/view?usp=sharing" target="_blank">Download PDF</a>
+				var pdfFrame = '<a href="https://drive.google.com/file/d/' + pdfId + '/view?usp=sharing" target="_blank">Download PDF <p> </a>';
 				document.write(pdfFrame);
 			}
 		}
